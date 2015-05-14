@@ -25,6 +25,12 @@ def show_off(limit)
   (1...limit).to_a.select{|i| i % 3 == 0 || i % 5 == 0}.inject(:+)
 end
 
+Benchmark.bm do |b|
+  b.report {perf(LIMIT)}
+  b.report {show_off(LIMIT)}
+
+end
+
 puts perf(LIMIT)
 
 puts show_off(LIMIT)
