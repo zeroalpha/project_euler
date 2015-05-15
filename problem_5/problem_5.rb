@@ -1,6 +1,7 @@
 # 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
 # What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
+# 
 sieve = (2..20).to_a
 
 sieve.each do |i|
@@ -8,7 +9,7 @@ sieve.each do |i|
   i.downto(2) do |j|
     break if prim = i % j == 0
   end
-  if prim
+  if !prim
     x = i
     while x <= 20
       sieve.delete(x+=i)
@@ -22,6 +23,7 @@ composite = (2..20).to_a.map do |i|
     while i % p == 0
       ret << p
       i /= p
+      break if i == 1
     end
   end
   ret
