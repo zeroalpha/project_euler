@@ -3,11 +3,7 @@
 
 target = 600851475143
 
-primes = [2,3,5,7,11,13,17,19]
-
-class PrimeEnumerator < Enumerator ; end
-
-enum = PrimeEnumerator.new do |y|
+prime_enum = Enumerator.new do |y|
   primes = [2]
   i = primes.last
   loop do
@@ -25,7 +21,7 @@ end
 
 factors = []
 until target == 1
-  p = enum.next
+  p = prime_enum.next
   while target % p == 0
     factors << p
     target /= p
