@@ -4,13 +4,13 @@
 	Find the sum of all the multiples of 3 or 5 below 1000.
 */
 
-sum = 3
+sum = 0
 
-do i = 3 to 1000 by 1
-  if (i//3=0 | i//5=0) then
+do i = 3 to 999 by 1
+  if (i//3=0 | i//5=0) then do
     say i
     sum = sum + i
-  /*endif*/
+  end
 end
 
 say sum
